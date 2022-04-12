@@ -1,0 +1,120 @@
+.footer {
+    background-color: $lightgrey-color;
+
+    .container {
+        padding-top: 0;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &-line {
+        border: 0;
+        border-top: 2px solid #e6e6f0;
+        height: 1px;
+        background-color: initial;
+        opacity: 1;
+    }
+
+    &-address {
+        margin-bottom: 0;
+
+        &:after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background-color: #b3b3ba;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 6px;
+            transform: translateY(-2px);
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        &-container {
+            display: flex;
+            margin-bottom: 20px;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            a {
+                font-size: 12px;
+                transform: translateY(4px);
+            }
+        }
+    }
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    svg:hover {
+        cursor: pointer;
+    }
+
+    svg:hover path {
+        fill: $main-color;
+        transition: .3s all ease;
+    }
+
+    .footer {
+        &-tel,
+        &-email {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        &-tel {
+            &::after,
+            &::before {
+                content: "";
+                width: 6px;
+                height: 6px;
+                background-color: #b3b3ba;
+                border-radius: 50%;
+                display: inline-block;
+                margin: 0 10px;
+                transform: translateY(-2px);
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+        }
+
+        &-email {
+            text-transform: none;
+        }
+    }
+}
+
+.copy {
+    color: $grey-color;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    @media (max-width: 768px) {
+        margin-top: 30px;
+    }
+}
