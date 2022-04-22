@@ -5,22 +5,32 @@ const body = document.querySelector("body");
 const service_modal = document.querySelector(".service-button");
 const service_window = document.querySelector(".service-modal-window");
 const service_close = document.querySelector(".close-button");
-
-open_button.addEventListener("click", function () {
-  body.classList.add("burger-open");
+const setListener = (elem, type, hendler) => {
+  if(!elem){
+    return
+  }
+  elem.addEventListener(type, hendler)
+  return () => {
+    elem.removeAddEventListener(type, hendler)
+  }
+}
+setListener(open_button,"click", function () {
+    body.classList.add("burger-open");
 });
 
-close_button.addEventListener("click", function () {
+setListener(close_button,"click", function () {
   collapse.classList.remove("show");
   body.classList.remove("burger-open");
 });
 
-service_modal.addEventListener("click", function () {
+setListener(service_modal,"click", function () {
+    service_modal.classList.add("opened");
+    body.classList.add("service-open");
   service_window.classList.add("opened");
   body.classList.add("service-open");
 });
 
-service_close.addEventListener("click", function () {
+setListener(service_close,"click", function () {
   service_window.classList.remove("opened");
   body.classList.remove("service-open");
 })
